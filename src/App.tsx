@@ -22,7 +22,6 @@ function App() {
   // Handle theme change
   const handleThemeChange = (newTheme: 'space' | 'nature' | 'minimal') => {
     setTheme(newTheme);
-    // Reset progress when theme changes
     setProgress(0);
   };
 
