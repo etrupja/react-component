@@ -1,0 +1,7 @@
+name = "react-component" 
+compatibility_date = "2025-03-02"  
+
+# Configure as a Workers Site (static site)
+[site]
+bucket = "./build"  # Path to your static files (the build directory)
+entry-point = "workers-site"  # Default entry-point for Workers Sites
