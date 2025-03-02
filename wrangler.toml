@@ -1,6 +1,12 @@
 name = "react-component"  # Name your project (must be unique in your Cloudflare account)
-compatibility_date = "2025-03-02"  # Use today’s date
+compatibility_date = "2025-03-02"  # Use today's date
+main = "workers-site/index.js"  # Specify the entry point
 
 # Configure as a Workers Site (static site)
 [site]
 bucket = "./build"  # Path to your static files
+
+# Cloudflare Pages configuration
+[build]
+command = "npm run build"
+output_directory = "build"
