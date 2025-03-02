@@ -1,22 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { MonkeyLoginForm } from './components/LoginForms';
 import { InteractiveProgressBar } from './components/InteractiveProgressBar';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState('');
   const [progress, setProgress] = useState(0);
   const [theme, setTheme] = useState<'space' | 'nature' | 'minimal'>('space');
   const [showConfetti, setShowConfetti] = useState(true);
-
-  const handleLogin = (username: string, password: string) => {
-    // In a real app, you would validate credentials here
-    console.log('Login attempt:', { username, password });
-    setIsLoggedIn(true);
-    setUsername(username);
-  };
 
   // Simulate progress increase
   useEffect(() => {
