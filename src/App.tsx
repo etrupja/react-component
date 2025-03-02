@@ -4,7 +4,7 @@ import { MonkeyLoginForm } from './components/LoginForms';
 import { InteractiveProgressBar } from './components/InteractiveProgressBar';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn] = useState(false);
   const [progress, setProgress] = useState(0);
   const [theme, setTheme] = useState<'space' | 'nature' | 'minimal'>('space');
   const [showConfetti, setShowConfetti] = useState(true);
