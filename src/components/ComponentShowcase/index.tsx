@@ -57,7 +57,7 @@ export default function ComponentShowcase({
   }
 
   return (
-    <article className="flex flex-col overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-sm">
+    <article className="text-left flex flex-col overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-sm">
       <header className="flex items-start justify-between gap-4 px-5 py-4 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
         <div className="text-left min-w-0">
           <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100 truncate">

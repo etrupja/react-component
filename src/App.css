@@ -292,6 +292,78 @@
   cursor: not-allowed;
 }
 
+/* Showcase controls (category chips + search) */
+.showcase-controls {
+  max-width: 1400px;
+  margin: 1.25rem auto 0;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.category-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.category-chip {
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  color: #4b5563;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.category-chip:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.category-chip.is-active {
+  background-color: #111827;
+  border-color: #111827;
+  color: #ffffff;
+}
+
+.search-wrap {
+  flex: 0 1 280px;
+  min-width: 200px;
+}
+
+.showcase-search {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  color: #2b2f36;
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 0.85rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.showcase-search:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.showcase-empty {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
 /* Dark mode overrides */
 .dark .App {
   background-color: #0f172a;
@@ -377,6 +449,38 @@
 .dark .progress-controls button:disabled {
   background-color: #1f2937;
   color: #4b5563;
+}
+
+.dark .category-chip {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #d1d5db;
+}
+
+.dark .category-chip:hover {
+  background-color: #374151;
+  color: #f3f4f6;
+}
+
+.dark .category-chip.is-active {
+  background-color: #f3f4f6;
+  border-color: #f3f4f6;
+  color: #111827;
+}
+
+.dark .showcase-search {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #f3f4f6;
+}
+
+.dark .showcase-search:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.25);
+}
+
+.dark .showcase-empty {
+  color: #9ca3af;
 }
 
 @media (max-width: 768px) {
