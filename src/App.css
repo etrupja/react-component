@@ -5,6 +5,75 @@
   color: #2b2f36;
 }
 
+/* ReSlug promo banner — top of layout, single line desktop, two lines mobile */
+.reslug-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.25rem;
+  background-color: #eef2ff;
+  color: #1e293b;
+  border-bottom: 1px solid #e0e7ff;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.reslug-banner-text {
+  margin: 0;
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.reslug-banner-cta {
+  flex: 0 0 auto;
+  background-color: #3b82f6;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  transition: background-color 0.2s;
+}
+
+.reslug-banner-cta:hover {
+  background-color: #2563eb;
+}
+
+.reslug-banner-dismiss {
+  flex: 0 0 auto;
+  background: transparent;
+  border: none;
+  color: #475569;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reslug-banner-dismiss:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+  color: #0f172a;
+}
+
+.reslug-banner-dismiss:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 1px;
+}
+
+@media (max-width: 640px) {
+  .reslug-banner {
+    padding: 0.6rem 1rem;
+  }
+  .reslug-banner-text {
+    flex-basis: 100%;
+  }
+}
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -53,6 +122,15 @@
 
 .nav-link:hover {
   color: #2b2f36;
+}
+
+.nav-link.is-active {
+  color: #2b2f36;
+  font-weight: 600;
+}
+
+.nav-brand {
+  text-decoration: none;
 }
 
 .nav-right {
@@ -364,6 +442,190 @@
   font-size: 0.95rem;
 }
 
+/* Page-level content blocks (Docs, About) */
+.page-section {
+  padding: 2.5rem 2rem 1rem;
+}
+
+.page-section-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.page-section-header {
+  margin-bottom: 1.25rem;
+}
+
+.page-section-header h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.page-section-header p {
+  margin: 0.25rem 0 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.page-section-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .page-section-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.page-section-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.page-section-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.page-section-card p,
+.page-section-card ul,
+.page-section-card ol {
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: #4b5563;
+}
+
+.page-section-card ul,
+.page-section-card ol {
+  padding-left: 1.25rem;
+}
+
+.page-section-card li {
+  margin-bottom: 0.2rem;
+}
+
+.page-section-card code {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.8em;
+}
+
+.page-section-card pre {
+  margin: 0.5rem 0 0;
+  padding: 0.6rem 0.8rem;
+  background-color: #0f172a;
+  color: #e2e8f0;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.page-section-card pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+.page-section-card kbd {
+  display: inline-block;
+  border: 1px solid #d1d5db;
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background-color: #f9fafb;
+  padding: 0 5px;
+  font-size: 0.75em;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  color: #1f2937;
+}
+
+/* Prose variant of a page section — headers + paragraphs, no cards. */
+.page-section-prose {
+  max-width: 720px;
+}
+
+.page-section-prose h3 {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.page-section-prose h3:first-child {
+  margin-top: 0;
+}
+
+.page-section-prose p,
+.page-section-prose ul,
+.page-section-prose ol {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #4b5563;
+}
+
+.page-section-prose ul,
+.page-section-prose ol {
+  padding-left: 1.25rem;
+}
+
+.page-section-prose li {
+  margin-bottom: 0.25rem;
+}
+
+.page-section-prose code {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+.page-section-prose pre {
+  margin: 0.75rem 0;
+  padding: 0.7rem 0.9rem;
+  background-color: #0f172a;
+  color: #e2e8f0;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.page-section-prose pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+.page-section-prose kbd {
+  display: inline-block;
+  border: 1px solid #d1d5db;
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background-color: #f9fafb;
+  padding: 0 5px;
+  font-size: 0.75em;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  color: #1f2937;
+}
+
+
 /* Dark mode overrides */
 .dark .App {
   background-color: #0f172a;
@@ -386,6 +648,10 @@
 }
 
 .dark .nav-link:hover {
+  color: #f3f4f6;
+}
+
+.dark .nav-link.is-active {
   color: #f3f4f6;
 }
 
@@ -482,6 +748,86 @@
 .dark .showcase-empty {
   color: #9ca3af;
 }
+
+.dark .page-section-header h2,
+.dark .page-section-card h3 {
+  color: #f3f4f6;
+}
+
+.dark .page-section-header p {
+  color: #9ca3af;
+}
+
+.dark .page-section-card {
+  background-color: #111827;
+  border-color: #1f2937;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dark .page-section-card p,
+.dark .page-section-card ul,
+.dark .page-section-card ol {
+  color: #cbd5e1;
+}
+
+.dark .page-section-card code {
+  background-color: #1f2937;
+  color: #e5e7eb;
+}
+
+.dark .page-section-card pre {
+  background-color: #020617;
+  color: #e2e8f0;
+}
+
+.dark .page-section-card kbd {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #f3f4f6;
+}
+
+.dark .page-section-prose h3 {
+  color: #f3f4f6;
+}
+
+.dark .page-section-prose p,
+.dark .page-section-prose ul,
+.dark .page-section-prose ol {
+  color: #cbd5e1;
+}
+
+.dark .page-section-prose code {
+  background-color: #1f2937;
+  color: #e5e7eb;
+}
+
+.dark .page-section-prose pre {
+  background-color: #020617;
+  color: #e2e8f0;
+}
+
+.dark .page-section-prose kbd {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #f3f4f6;
+}
+
+
+.dark .reslug-banner {
+  background-color: #1e293b;
+  color: #e0e7ff;
+  border-bottom-color: #334155;
+}
+
+.dark .reslug-banner-dismiss {
+  color: #cbd5e1;
+}
+
+.dark .reslug-banner-dismiss:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
 
 @media (max-width: 768px) {
   .App-header {

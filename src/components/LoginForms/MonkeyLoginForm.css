@@ -186,4 +186,29 @@
 
 .login-button:active {
   transform: translateY(1px);
+}
+
+/* Dark mode */
+.dark .monkey-login-container {
+  background-color: #111827;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.dark .form-group label {
+  color: #e5e7eb;
+}
+
+.dark .form-group input {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #f3f4f6;
+}
+
+.dark .form-group input::placeholder {
+  color: #6b7280;
+}
+
+.dark .form-group input:focus {
+  border-color: #d97f4a;
+  box-shadow: 0 0 0 2px rgba(217, 127, 74, 0.25);
 } 
