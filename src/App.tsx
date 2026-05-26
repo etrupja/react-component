@@ -1,124 +1,96 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import { MonkeyLoginForm } from './components/LoginForms';
-import { InteractiveProgressBar } from './components/InteractiveProgressBar';
+import { useTheme } from './hooks/useTheme';
+import ComponentShowcase from './components/ComponentShowcase';
+
+import monkeyLoginSource from './components/LoginForms/MonkeyLoginForm.tsx?raw';
+import monkeyLoginUsage from './components/LoginForms/MonkeyLoginForm.usage.md?raw';
+
+import InteractiveProgressBarDemo from './components/InteractiveProgressBar/InteractiveProgressBar.demo';
+import progressBarSource from './components/InteractiveProgressBar/InteractiveProgressBar.tsx?raw';
+import progressBarUsage from './components/InteractiveProgressBar/InteractiveProgressBar.usage.md?raw';
+
+import GrumpyFormValidator, {
+  metadata as grumpyMetadata,
+} from './components/GrumpyFormValidator';
+import grumpySource from './components/GrumpyFormValidator/index.tsx?raw';
+import grumpyUsage from './components/GrumpyFormValidator/GrumpyFormValidator.usage.md?raw';
+
+const monkeyLoginMetadata = {
+  name: 'Monkey Login Form',
+  description: 'An animated monkey-themed login form with interactive elements.',
+  category: 'Forms',
+  tags: ['form', 'login', 'animation', 'svg'],
+};
+
+const progressBarMetadata = {
+  name: 'Interactive Progress Bar',
+  description: 'A customizable progress bar with multiple themes and confetti celebration.',
+  category: 'Feedback',
+  tags: ['progress', 'animation', 'confetti', 'theme'],
+};
 
 function App() {
-  const [isLoggedIn] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [theme, setTheme] = useState<'space' | 'nature' | 'minimal'>('space');
-  const [showConfetti, setShowConfetti] = useState(true);
-
-  // Simulate progress increase
-  useEffect(() => {
-    if (isLoggedIn && progress < 100) {
-      const timer = setTimeout(() => {
-        setProgress(prev => Math.min(prev + 5, 100));
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  }, [isLoggedIn, progress]);
-
-  // Handle theme change
-  const handleThemeChange = (newTheme: 'space' | 'nature' | 'minimal') => {
-    setTheme(newTheme);
-    setProgress(0);
-  };
+  const { theme: appTheme, toggle: toggleTheme } = useTheme();
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>React Component Showcase</h1>
-        <p>A collection of interactive React components</p>
+        <nav className="nav-left">
+          <span className="nav-brand">RCS</span>
+          <a href="#components" className="nav-link">
+            Components
+          </a>
+          <a href="#docs" className="nav-link">
+            Docs
+          </a>
+          <a href="#about" className="nav-link">
+            About
+          </a>
+        </nav>
+        <div className="nav-right">
+          <div className="nav-text">
+            <h3>React Component Showcase</h3>
+            <p>A collection of interactive React components</p>
+          </div>
+          <button
+            type="button"
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${appTheme === 'dark' ? 'light' : 'dark'} mode`}
+            title={`Switch to ${appTheme === 'dark' ? 'light' : 'dark'} mode`}
+          >
+            {appTheme === 'dark' ? '☀' : '☾'}
+          </button>
+        </div>
       </header>
-      
+
       <div className="component-showcase">
-        {/* Monkey Login Form Component Card */}
-        <div className="component-card">
-          <h2>Monkey Login Form</h2>
-          <div className="component-demo">
-            <MonkeyLoginForm onSubmit={(username, password) => {
-              console.log('Login attempt:', { username, password });
-            }} />
-          </div>
-          <div className="component-description">
-            <p>An animated monkey-themed login form with interactive elements.</p>
-          </div>
-        </div>
+        <ComponentShowcase
+          component={MonkeyLoginForm}
+          componentProps={{
+            onSubmit: (username: string, password: string) =>
+              console.log('Login attempt:', { username, password }),
+          }}
+          source={monkeyLoginSource}
+          usage={monkeyLoginUsage}
+          metadata={monkeyLoginMetadata}
+        />
 
-        {/* Interactive Progress Bar Component Card */}
-        <div className="component-card">
-          <h2>Interactive Progress Bar</h2>
-          <div className="component-demo">
-            <div className="theme-selector">
-              <button 
-                className={`theme-button ${theme === 'space' ? 'active' : ''}`}
-                onClick={() => handleThemeChange('space')}
-              >
-                Space Theme 🚀
-              </button>
-              <button 
-                className={`theme-button ${theme === 'nature' ? 'active' : ''}`}
-                onClick={() => handleThemeChange('nature')}
-              >
-                Nature Theme 🌱
-              </button>
-              <button 
-                className={`theme-button ${theme === 'minimal' ? 'active' : ''}`}
-                onClick={() => handleThemeChange('minimal')}
-              >
-                Minimal Theme ⚡
-              </button>
-            </div>
-            
-            <div className="confetti-toggle">
-              <label>
-                <input 
-                  type="checkbox" 
-                  checked={showConfetti} 
-                  onChange={() => setShowConfetti(!showConfetti)}
-                />
-                Show Confetti on Completion
-              </label>
-            </div>
-            
-            <InteractiveProgressBar 
-              progress={progress} 
-              theme={theme}
-              showConfetti={showConfetti}
-              onComplete={() => console.log('Progress complete!')}
-              width="100%"
-              height="30px"
-            />
-            
-            <div className="progress-controls">
-              <button 
-                onClick={() => setProgress(0)}
-                disabled={progress === 0}
-              >
-                Reset
-              </button>
-              <button 
-                onClick={() => setProgress(prev => Math.min(prev + 10, 100))}
-                disabled={progress === 100}
-              >
-                Increase +10%
-              </button>
-              <button 
-                onClick={() => setProgress(100)}
-                disabled={progress === 100}
-              >
-                Complete
-              </button>
-            </div>
-          </div>
-          <div className="component-description">
-            <p>A customizable progress bar with multiple themes and confetti celebration.</p>
-          </div>
-        </div>
+        <ComponentShowcase
+          component={InteractiveProgressBarDemo}
+          source={progressBarSource}
+          usage={progressBarUsage}
+          metadata={progressBarMetadata}
+        />
 
-
-        {/* Add more component cards here as you create them */}
+        <ComponentShowcase
+          component={GrumpyFormValidator}
+          source={grumpySource}
+          usage={grumpyUsage}
+          metadata={grumpyMetadata}
+        />
       </div>
     </div>
   );
