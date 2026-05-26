@@ -17,6 +17,12 @@ import GrumpyFormValidator, {
 import grumpySource from './components/GrumpyFormValidator/index.tsx?raw';
 import grumpyUsage from './components/GrumpyFormValidator/GrumpyFormValidator.usage.md?raw';
 
+import TrustFallButton, {
+  metadata as trustFallMetadata,
+} from './components/TrustFallButton';
+import trustFallSource from './components/TrustFallButton/index.tsx?raw';
+import trustFallUsage from './components/TrustFallButton/TrustFallButton.usage.md?raw';
+
 const monkeyLoginMetadata = {
   name: 'Monkey Login Form',
   description: 'An animated monkey-themed login form with interactive elements.',
@@ -90,6 +96,16 @@ function App() {
           source={grumpySource}
           usage={grumpyUsage}
           metadata={grumpyMetadata}
+        />
+
+        <ComponentShowcase
+          component={TrustFallButton}
+          componentProps={{
+            onConfirm: () => console.log('Trust fall confirmed'),
+          }}
+          source={trustFallSource}
+          usage={trustFallUsage}
+          metadata={trustFallMetadata}
         />
       </div>
     </div>
