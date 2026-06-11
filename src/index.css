@@ -71,3 +71,17 @@ code {
   .procrastinator-annoyed,
   .procrastinator-furious { animation: none; }
 }
+
+/* Drama queen toast: trivial notifications arrive vibrating with urgency. */
+@keyframes drama-queen-shake {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-1.5px, 1px); }
+  40% { transform: translate(1.5px, -1px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 1px); }
+}
+.drama-queen-shake { animation: drama-queen-shake 0.35s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .drama-queen-shake { animation: none; }
+}

@@ -39,6 +39,36 @@ import SentientSearchBar, {
 import sentientSearchSource from '../components/SentientSearchBar/index.tsx?raw';
 import sentientSearchUsage from '../components/SentientSearchBar/SentientSearchBar.usage.md?raw';
 
+import PassiveAggressiveSpinner, {
+  metadata as passiveSpinnerMetadata,
+} from '../components/PassiveAggressiveSpinner';
+import passiveSpinnerSource from '../components/PassiveAggressiveSpinner/index.tsx?raw';
+import passiveSpinnerUsage from '../components/PassiveAggressiveSpinner/PassiveAggressiveSpinner.usage.md?raw';
+
+import GuiltTripModal, {
+  metadata as guiltTripMetadata,
+} from '../components/GuiltTripModal';
+import guiltTripSource from '../components/GuiltTripModal/index.tsx?raw';
+import guiltTripUsage from '../components/GuiltTripModal/GuiltTripModal.usage.md?raw';
+
+import OverlyAttachedTooltip, {
+  metadata as overlyAttachedMetadata,
+} from '../components/OverlyAttachedTooltip';
+import overlyAttachedSource from '../components/OverlyAttachedTooltip/index.tsx?raw';
+import overlyAttachedUsage from '../components/OverlyAttachedTooltip/OverlyAttachedTooltip.usage.md?raw';
+
+import DramaQueenToast, {
+  metadata as dramaQueenMetadata,
+} from '../components/DramaQueenToast';
+import dramaQueenSource from '../components/DramaQueenToast/index.tsx?raw';
+import dramaQueenUsage from '../components/DramaQueenToast/DramaQueenToast.usage.md?raw';
+
+import NosyStepper, {
+  metadata as nosyStepperMetadata,
+} from '../components/NosyStepper';
+import nosyStepperSource from '../components/NosyStepper/index.tsx?raw';
+import nosyStepperUsage from '../components/NosyStepper/NosyStepper.usage.md?raw';
+
 type ShowcaseEntry = {
   id: string;
   component: ComponentType<any>;
@@ -121,6 +151,60 @@ const ENTRIES: ShowcaseEntry[] = [
     source: sentientSearchSource,
     usage: sentientSearchUsage,
     metadata: sentientSearchMetadata,
+  },
+  {
+    id: 'passive-spinner',
+    component: PassiveAggressiveSpinner,
+    componentProps: {
+      stages: [
+        { at: 0, text: 'Loading…' },
+        { at: 4_000, text: 'Still loading. No rush.' },
+        { at: 8_000, text: 'Taking its sweet time, apparently.' },
+        { at: 14_000, text: 'I mean, YOU try fetching this data.' },
+      ],
+    },
+    source: passiveSpinnerSource,
+    usage: passiveSpinnerUsage,
+    metadata: passiveSpinnerMetadata,
+  },
+  {
+    id: 'guilt-trip-modal',
+    component: GuiltTripModal,
+    componentProps: {
+      onConfirm: () => console.log('Guilt trip confirmed'),
+      storageKey: 'guilt-trip-abandons-demo',
+    },
+    source: guiltTripSource,
+    usage: guiltTripUsage,
+    metadata: guiltTripMetadata,
+  },
+  {
+    id: 'overly-attached-tooltip',
+    component: OverlyAttachedTooltip,
+    source: overlyAttachedSource,
+    usage: overlyAttachedUsage,
+    metadata: overlyAttachedMetadata,
+  },
+  {
+    id: 'drama-queen-toast',
+    component: DramaQueenToast,
+    componentProps: {
+      duration: 4_000,
+    },
+    source: dramaQueenSource,
+    usage: dramaQueenUsage,
+    metadata: dramaQueenMetadata,
+  },
+  {
+    id: 'nosy-stepper',
+    component: NosyStepper,
+    componentProps: {
+      pacing: { rushed: 2_000, lingering: 8_000 },
+      onComplete: () => console.log('Stepper completed'),
+    },
+    source: nosyStepperSource,
+    usage: nosyStepperUsage,
+    metadata: nosyStepperMetadata,
   },
 ];
 
